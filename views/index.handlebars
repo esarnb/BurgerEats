@@ -1,0 +1,38 @@
+<h1>Some Burgers</h1>
+
+  <h3>To Eat:</h3>
+<ul>
+  {{#each burgers}}
+    {{#unless this.ate}}
+        {{> eat-burger ate=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+
+  <h3>Ate:</h3>
+<ul>
+  {{#each burgers}}
+    {{#if this.ate}}
+        {{> eat-burger ate=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="theName">Name:</label>
+    <input type="text" id="theName" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="eating">Ate?</label><br>
+    <input type="radio" name="state" value="1" checked> Ate<br>
+    <input type="radio" name="state" value="0"> To Eat
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
